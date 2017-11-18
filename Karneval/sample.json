@@ -1,0 +1,28 @@
+﻿{
+   "recurringItems":[
+      {
+         "title":"tusch 1x",
+         "filePath":"F:\\Schnippelei\\Karneval\\2017\\Schiffelbach\\tusch_1x.mp3"
+      },
+      {
+         "title":"tusch 3fach",
+         "filePath":"F:\\Schnippelei\\Karneval\\2017\\Schiffelbach\\tusch_3x.mp3"
+      },
+      {
+         "title":"narhalla",
+         "filePath":"F:\\Schnippelei\\Karneval\\2017\\Schiffelbach\\narhalla_+10prozent.mp3"
+      }
+   ],
+   "programItems":[
+      {
+         "title":"Einmarsch Moderator",
+         "type":"audio",
+         "filePath":"geiles_himmelblau.mp3"
+      },
+      {
+         "title":"Ausmarsch XY",
+         "type":"audio",
+         "filePath":"ausmarsch.mp3"
+      }
+   ]
+}
