@@ -91,6 +91,10 @@ namespace Karneval
 
     public void SetActiveProgramItem(ProgramItemViewControl programItem)
     {
+      if (mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+      {
+        return;
+      }
       foreach (Control control in this.Controls)
       {
         if (control is ProgramItemViewControl)
@@ -100,6 +104,8 @@ namespace Karneval
       }
       programItem.Active = true;
       currentItem = programItem.ProgramItem;
+
+      grpCurrentItem.Text = currentItem.Title;
 
       mediaPlayer.URL = currentItem.FilePath;
       mediaPlayer.Ctlcontrols.stop();
