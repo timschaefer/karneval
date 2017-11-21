@@ -30,25 +30,34 @@
         {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
       this.grpCurrentItem = new System.Windows.Forms.GroupBox();
+      this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
       this.mnuMain = new System.Windows.Forms.MenuStrip();
       this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.itemNew = new System.Windows.Forms.ToolStripMenuItem();
       this.itemOpen = new System.Windows.Forms.ToolStripMenuItem();
-      this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
       this.grpCurrentItem.SuspendLayout();
-      this.mnuMain.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
+      this.mnuMain.SuspendLayout();
       this.SuspendLayout();
       // 
       // grpCurrentItem
       // 
       this.grpCurrentItem.Controls.Add(this.mediaPlayer);
-      this.grpCurrentItem.Location = new System.Drawing.Point(112, 40);
+      this.grpCurrentItem.Location = new System.Drawing.Point(178, 27);
       this.grpCurrentItem.Name = "grpCurrentItem";
-      this.grpCurrentItem.Size = new System.Drawing.Size(318, 185);
+      this.grpCurrentItem.Size = new System.Drawing.Size(299, 185);
       this.grpCurrentItem.TabIndex = 0;
       this.grpCurrentItem.TabStop = false;
       this.grpCurrentItem.Text = "Aktueller Programmpunkt";
+      // 
+      // mediaPlayer
+      // 
+      this.mediaPlayer.Enabled = true;
+      this.mediaPlayer.Location = new System.Drawing.Point(15, 81);
+      this.mediaPlayer.Name = "mediaPlayer";
+      this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
+      this.mediaPlayer.Size = new System.Drawing.Size(251, 46);
+      this.mediaPlayer.TabIndex = 1;
       // 
       // mnuMain
       // 
@@ -72,24 +81,15 @@
       // itemNew
       // 
       this.itemNew.Name = "itemNew";
-      this.itemNew.Size = new System.Drawing.Size(152, 22);
+      this.itemNew.Size = new System.Drawing.Size(111, 22);
       this.itemNew.Text = "Neu";
       // 
       // itemOpen
       // 
       this.itemOpen.Name = "itemOpen";
-      this.itemOpen.Size = new System.Drawing.Size(152, 22);
+      this.itemOpen.Size = new System.Drawing.Size(111, 22);
       this.itemOpen.Text = "Öffnen";
       this.itemOpen.Click += new System.EventHandler(this.itemOpen_Click);
-      // 
-      // mediaPlayer
-      // 
-      this.mediaPlayer.Enabled = true;
-      this.mediaPlayer.Location = new System.Drawing.Point(15, 81);
-      this.mediaPlayer.Name = "mediaPlayer";
-      this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
-      this.mediaPlayer.Size = new System.Drawing.Size(251, 46);
-      this.mediaPlayer.TabIndex = 1;
       // 
       // Main
       // 
@@ -103,9 +103,9 @@
       this.Text = "Karneval";
       this.Load += new System.EventHandler(this.Main_Load);
       this.grpCurrentItem.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
       this.mnuMain.ResumeLayout(false);
       this.mnuMain.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 

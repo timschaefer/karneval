@@ -41,10 +41,6 @@ namespace Karneval
       {
         string fileName = fileDialog.FileName;
         LoadProgramFile(fileName);
-        currentItem = recurringItems[0];
-        
-        mediaPlayer.URL = currentItem.FilePath;
-        mediaPlayer.Ctlcontrols.stop();
       }
     }
 
@@ -56,12 +52,27 @@ namespace Karneval
         {
           JObject jsonFile = JObject.Parse(File.ReadAllText(filePath));
 
-          recurringItems = jsonFile["recurringItems"].Select(x => x.ToObject<ProgramItem>()).ToList();
-          programItems = jsonFile["programItems"].Select(x => x.ToObject<ProgramItem>()).ToList();
+          recurringItems = jsonFile["recurringItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
+          programItems = jsonFile["programItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
         }
         catch (Exception)
         {
           MessageBox.Show("Fehler beim Lesen der JSON Datei");
+        }
+
+        int y = 40;
+        foreach (ProgramItem item in programItems)
+        {
+          ProgramItemViewControl control = new ProgramItemViewControl(item);
+          if (y == 40)
+          {
+            // ToDo: schöner machen
+            SetActiveProgramItem(control);
+          }
+          control.Location = new Point(10, y);
+          this.Controls.Add(control);
+
+          y += 50;
         }
 
         DirectoryInfo programDefinitionLocation = new DirectoryInfo(filePath);
@@ -76,6 +87,22 @@ namespace Karneval
         return true;
       }
       return false;
+    }
+
+    public void SetActiveProgramItem(ProgramItemViewControl programItem)
+    {
+      foreach (Control control in this.Controls)
+      {
+        if (control is ProgramItemViewControl)
+        {
+          ((ProgramItemViewControl)control).Active = false;
+        }
+      }
+      programItem.Active = true;
+      currentItem = programItem.ProgramItem;
+
+      mediaPlayer.URL = currentItem.FilePath;
+      mediaPlayer.Ctlcontrols.stop();
     }
   }
 }
