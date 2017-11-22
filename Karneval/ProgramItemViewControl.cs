@@ -32,6 +32,11 @@ namespace Karneval
       }
     }
 
+    public ProgramItemViewControl()
+    {
+      InitializeComponent();
+    }
+
     public ProgramItemViewControl(ProgramItem programItem)
     {
       InitializeComponent();
@@ -41,7 +46,7 @@ namespace Karneval
 
     private void ProgramItemViewControl_DoubleClick(object sender, EventArgs e)
     {
-      Main mainForm = (Main) this.Parent;
+      Main mainForm = (Main) this.Parent.Parent;
       mainForm.SetActiveProgramItem(this);
     }
 

@@ -60,20 +60,13 @@ namespace Karneval
           MessageBox.Show("Fehler beim Lesen der JSON Datei");
         }
 
-        int y = 40;
         foreach (ProgramItem item in programItems)
         {
           ProgramItemViewControl control = new ProgramItemViewControl(item);
-          if (y == 40)
-          {
-            // ToDo: schöner machen
-            SetActiveProgramItem(control);
-          }
-          control.Location = new Point(10, y);
-          this.Controls.Add(control);
-
-          y += 50;
+          pnlProgramItems.Controls.Add(control);
         }
+        // set first program item to active
+        SetActiveProgramItem((ProgramItemViewControl) pnlProgramItems.Controls[0]);
 
         DirectoryInfo programDefinitionLocation = new DirectoryInfo(filePath);
         foreach (ProgramItem item in recurringItems)
@@ -95,7 +88,7 @@ namespace Karneval
       {
         return;
       }
-      foreach (Control control in this.Controls)
+      foreach (Control control in pnlProgramItems.Controls)
       {
         if (control is ProgramItemViewControl)
         {

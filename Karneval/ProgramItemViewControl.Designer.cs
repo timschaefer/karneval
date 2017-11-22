@@ -47,7 +47,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.lblTitle);
       this.Name = "ProgramItemViewControl";
-      this.Size = new System.Drawing.Size(154, 50);
+      this.Size = new System.Drawing.Size(150, 50);
       this.DoubleClick += new System.EventHandler(this.ProgramItemViewControl_DoubleClick);
       this.ResumeLayout(false);
       this.PerformLayout();
