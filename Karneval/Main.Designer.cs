@@ -35,8 +35,10 @@
       this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.itemNew = new System.Windows.Forms.ToolStripMenuItem();
       this.itemOpen = new System.Windows.Forms.ToolStripMenuItem();
-      this.grpRecurringItems = new System.Windows.Forms.GroupBox();
       this.pnlProgramItems = new System.Windows.Forms.FlowLayoutPanel();
+      this.pnlRecurringItems = new System.Windows.Forms.FlowLayoutPanel();
+      this.rtxtInfo = new System.Windows.Forms.RichTextBox();
+      this.lblInfo = new System.Windows.Forms.Label();
       this.grpCurrentItem.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
       this.mnuMain.SuspendLayout();
@@ -93,33 +95,52 @@
       this.itemOpen.Text = "Öffnen";
       this.itemOpen.Click += new System.EventHandler(this.itemOpen_Click);
       // 
-      // grpRecurringItems
-      // 
-      this.grpRecurringItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.grpRecurringItems.Location = new System.Drawing.Point(10, 310);
-      this.grpRecurringItems.Name = "grpRecurringItems";
-      this.grpRecurringItems.Size = new System.Drawing.Size(700, 82);
-      this.grpRecurringItems.TabIndex = 3;
-      this.grpRecurringItems.TabStop = false;
-      this.grpRecurringItems.Text = "Wiederkehrende";
-      // 
       // pnlProgramItems
       // 
       this.pnlProgramItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlProgramItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.pnlProgramItems.Location = new System.Drawing.Point(10, 25);
       this.pnlProgramItems.Name = "pnlProgramItems";
       this.pnlProgramItems.Size = new System.Drawing.Size(697, 153);
       this.pnlProgramItems.TabIndex = 4;
+      // 
+      // pnlRecurringItems
+      // 
+      this.pnlRecurringItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlRecurringItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.pnlRecurringItems.Location = new System.Drawing.Point(10, 310);
+      this.pnlRecurringItems.Name = "pnlRecurringItems";
+      this.pnlRecurringItems.Size = new System.Drawing.Size(697, 100);
+      this.pnlRecurringItems.TabIndex = 0;
+      // 
+      // rtxtInfo
+      // 
+      this.rtxtInfo.Location = new System.Drawing.Point(10, 205);
+      this.rtxtInfo.Name = "rtxtInfo";
+      this.rtxtInfo.Size = new System.Drawing.Size(144, 86);
+      this.rtxtInfo.TabIndex = 5;
+      this.rtxtInfo.Text = "";
+      // 
+      // lblInfo
+      // 
+      this.lblInfo.AutoSize = true;
+      this.lblInfo.Location = new System.Drawing.Point(10, 185);
+      this.lblInfo.Name = "lblInfo";
+      this.lblInfo.Size = new System.Drawing.Size(28, 13);
+      this.lblInfo.TabIndex = 6;
+      this.lblInfo.Text = "Info:";
       // 
       // Main
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(724, 442);
+      this.Controls.Add(this.lblInfo);
+      this.Controls.Add(this.rtxtInfo);
+      this.Controls.Add(this.pnlRecurringItems);
       this.Controls.Add(this.pnlProgramItems);
-      this.Controls.Add(this.grpRecurringItems);
       this.Controls.Add(this.grpCurrentItem);
       this.Controls.Add(this.mnuMain);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -145,8 +166,10 @@
     private System.Windows.Forms.ToolStripMenuItem itemOpen;
     private System.Windows.Forms.ToolStripMenuItem itemNew;
     private AxWMPLib.AxWindowsMediaPlayer mediaPlayer;
-    private System.Windows.Forms.GroupBox grpRecurringItems;
     private System.Windows.Forms.FlowLayoutPanel pnlProgramItems;
+    private System.Windows.Forms.FlowLayoutPanel pnlRecurringItems;
+    private System.Windows.Forms.RichTextBox rtxtInfo;
+    private System.Windows.Forms.Label lblInfo;
   }
 }
 

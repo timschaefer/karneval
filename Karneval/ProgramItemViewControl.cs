@@ -44,15 +44,15 @@ namespace Karneval
       lblTitle.Text = programItem.Title;
     }
 
-    private void ProgramItemViewControl_DoubleClick(object sender, EventArgs e)
+    private void ProgramItemViewControl_Click(object sender, EventArgs e)
     {
       Main mainForm = (Main) this.Parent.Parent;
       mainForm.SetActiveProgramItem(this);
     }
 
-    private void lblTitle_DoubleClick(object sender, EventArgs e)
+    private void lblTitle_Click(object sender, EventArgs e)
     {
-      ProgramItemViewControl_DoubleClick(sender, e);
+      ProgramItemViewControl_Click(sender, e);
     }
   }
 }

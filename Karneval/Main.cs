@@ -68,6 +68,14 @@ namespace Karneval
         // set first program item to active
         SetActiveProgramItem((ProgramItemViewControl) pnlProgramItems.Controls[0]);
 
+        foreach (ProgramItem item in recurringItems)
+        {
+          Button button = new Button();
+          button.Text = item.Title;
+          button.Click += (_, __) => mediaPlayer.URL = item.FilePath;
+          pnlRecurringItems.Controls.Add(button);
+        }
+
         DirectoryInfo programDefinitionLocation = new DirectoryInfo(filePath);
         foreach (ProgramItem item in recurringItems)
         {
@@ -99,6 +107,8 @@ namespace Karneval
       currentItem = programItem.ProgramItem;
 
       grpCurrentItem.Text = currentItem.Title;
+
+      rtxtInfo.Text = currentItem.Info;
 
       mediaPlayer.URL = currentItem.FilePath;
       mediaPlayer.Ctlcontrols.stop();

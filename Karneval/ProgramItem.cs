@@ -17,5 +17,7 @@ namespace Karneval
     public string Title { get; set; }
 
     public string FilePath { get; set; }
+
+    public string Info { get; set; }
   }
 }

@@ -39,7 +39,7 @@
       this.lblTitle.Size = new System.Drawing.Size(23, 13);
       this.lblTitle.TabIndex = 0;
       this.lblTitle.Text = "title";
-      this.lblTitle.DoubleClick += new System.EventHandler(this.lblTitle_DoubleClick);
+      this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
       // 
       // ProgramItemViewControl
       // 
@@ -48,7 +48,7 @@
       this.Controls.Add(this.lblTitle);
       this.Name = "ProgramItemViewControl";
       this.Size = new System.Drawing.Size(150, 50);
-      this.DoubleClick += new System.EventHandler(this.ProgramItemViewControl_DoubleClick);
+      this.Click += new System.EventHandler(this.ProgramItemViewControl_Click);
       this.ResumeLayout(false);
       this.PerformLayout();
 
