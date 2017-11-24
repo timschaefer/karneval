@@ -14,13 +14,13 @@ using Newtonsoft.Json.Linq;
 
 namespace Karneval
 {
-  public partial class Main : Form
+  public partial class PlayerForm : Form
   {
     private List<ProgramItem> recurringItems;
     private List<ProgramItem> programItems;
     private ProgramItem currentItem;
 
-    public Main()
+    public PlayerForm()
     {
       InitializeComponent();
     }
@@ -32,11 +32,16 @@ namespace Karneval
 
     private void itemOpen_Click(object sender, EventArgs e)
     {
+      LoadFile();
+    }
+
+    public void LoadFile()
+    {
       OpenFileDialog fileDialog = new OpenFileDialog();
       fileDialog.Title = "Datei auswählen";
       fileDialog.Filter = "JSON files (*.json)|*.json";
       fileDialog.CheckFileExists = true;
-      
+
       if (fileDialog.ShowDialog() == DialogResult.OK)
       {
         string fileName = fileDialog.FileName;
@@ -112,6 +117,11 @@ namespace Karneval
 
       mediaPlayer.URL = currentItem.FilePath;
       mediaPlayer.Ctlcontrols.stop();
+    }
+
+    private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      Application.Exit();
     }
   }
 }

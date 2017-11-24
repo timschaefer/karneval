@@ -1,6 +1,6 @@
 ﻿namespace Karneval
 {
-    partial class Main
+    partial class PlayerForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerForm));
       this.grpCurrentItem = new System.Windows.Forms.GroupBox();
       this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
       this.mnuMain = new System.Windows.Forms.MenuStrip();
@@ -47,7 +47,7 @@
       // grpCurrentItem
       // 
       this.grpCurrentItem.Controls.Add(this.mediaPlayer);
-      this.grpCurrentItem.Location = new System.Drawing.Point(160, 184);
+      this.grpCurrentItem.Location = new System.Drawing.Point(234, 184);
       this.grpCurrentItem.Name = "grpCurrentItem";
       this.grpCurrentItem.Size = new System.Drawing.Size(299, 115);
       this.grpCurrentItem.TabIndex = 0;
@@ -119,7 +119,7 @@
       // 
       this.rtxtInfo.Location = new System.Drawing.Point(10, 205);
       this.rtxtInfo.Name = "rtxtInfo";
-      this.rtxtInfo.Size = new System.Drawing.Size(144, 86);
+      this.rtxtInfo.Size = new System.Drawing.Size(218, 86);
       this.rtxtInfo.TabIndex = 5;
       this.rtxtInfo.Text = "";
       // 
@@ -132,7 +132,7 @@
       this.lblInfo.TabIndex = 6;
       this.lblInfo.Text = "Info:";
       // 
-      // Main
+      // PlayerForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -146,8 +146,9 @@
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.MainMenuStrip = this.mnuMain;
       this.MinimumSize = new System.Drawing.Size(700, 450);
-      this.Name = "Main";
+      this.Name = "PlayerForm";
       this.Text = "Karneval";
+      this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayerForm_FormClosed);
       this.Load += new System.EventHandler(this.Main_Load);
       this.grpCurrentItem.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();

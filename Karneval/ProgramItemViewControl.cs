@@ -46,7 +46,7 @@ namespace Karneval
 
     private void ProgramItemViewControl_Click(object sender, EventArgs e)
     {
-      Main mainForm = (Main) this.Parent.Parent;
+      PlayerForm mainForm = (PlayerForm) this.Parent.Parent;
       mainForm.SetActiveProgramItem(this);
     }
 
