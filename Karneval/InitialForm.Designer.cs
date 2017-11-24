@@ -52,8 +52,9 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(386, 140);
       this.Controls.Add(this.cmdOpenFile);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "InitialForm";
-      this.Text = "InitialForm";
+      this.Text = "Karneval";
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InitialForm_FormClosed);
       this.ResumeLayout(false);
 
