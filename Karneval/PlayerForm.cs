@@ -44,8 +44,10 @@ namespace Karneval
 
       if (fileDialog.ShowDialog() == DialogResult.OK)
       {
-        string fileName = fileDialog.FileName;
-        LoadProgramFile(fileName);
+        pnlProgramItems.Controls.Clear();
+        pnlRecurringItems.Controls.Clear();
+        
+        LoadProgramFile(fileDialog.FileName);
       }
     }
 
@@ -65,34 +67,53 @@ namespace Karneval
           MessageBox.Show("Fehler beim Lesen der JSON Datei");
         }
 
+        // create controls for all program items
         foreach (ProgramItem item in programItems)
         {
           ProgramItemViewControl control = new ProgramItemViewControl(item);
           pnlProgramItems.Controls.Add(control);
         }
-        // set first program item to active
-        SetActiveProgramItem((ProgramItemViewControl) pnlProgramItems.Controls[0]);
 
         foreach (ProgramItem item in recurringItems)
         {
           Button button = new Button();
           button.Text = item.Title;
+          button.Height = 40;
           button.Click += (_, __) => mediaPlayer.URL = item.FilePath;
           pnlRecurringItems.Controls.Add(button);
         }
 
-        DirectoryInfo programDefinitionLocation = new DirectoryInfo(filePath);
-        foreach (ProgramItem item in recurringItems)
-        {
-          if (!File.Exists(item.FilePath))
-          {
-            MessageBox.Show(string.Format("Datei '{0}' existiert nicht (Pfad: {1})", item.Title, item.FilePath), "Datei existiert nicht");
-          }
-        }
+        string baseDir = new DirectoryInfo(filePath).Parent.FullName;
+
+        ResolveFilePaths(recurringItems, baseDir);
+        ResolveFilePaths(programItems, baseDir);
+
+        // set first program item to active
+        SetActiveProgramItem((ProgramItemViewControl)pnlProgramItems.Controls[0]);
 
         return true;
       }
       return false;
+    }
+
+    public void ResolveFilePaths(List<ProgramItem> items, string baseDir)
+    {
+      foreach (ProgramItem item in items)
+      {
+        if (!File.Exists(item.FilePath))
+        {
+          // try to resolve the file name against the project file location
+          string path = Path.Combine(baseDir, item.FilePath);
+          if (File.Exists(path))
+          {
+            item.FilePath = path;
+          }
+          else
+          {
+            MessageBox.Show(string.Format("Datei '{0}' existiert nicht (Pfad: {1})", item.Title, item.FilePath), "Datei existiert nicht");
+          }
+        }
+      }
     }
 
     public void SetActiveProgramItem(ProgramItemViewControl programItem)
@@ -120,6 +141,11 @@ namespace Karneval
     }
 
     private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
+    {
+      Application.Exit();
+    }
+
+    private void itemQuit_Click(object sender, EventArgs e)
     {
       Application.Exit();
     }

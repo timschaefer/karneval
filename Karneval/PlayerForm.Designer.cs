@@ -39,6 +39,7 @@
       this.pnlRecurringItems = new System.Windows.Forms.FlowLayoutPanel();
       this.rtxtInfo = new System.Windows.Forms.RichTextBox();
       this.lblInfo = new System.Windows.Forms.Label();
+      this.itemQuit = new System.Windows.Forms.ToolStripMenuItem();
       this.grpCurrentItem.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
       this.mnuMain.SuspendLayout();
@@ -77,7 +78,8 @@
       // 
       this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.itemNew,
-            this.itemOpen});
+            this.itemOpen,
+            this.itemQuit});
       this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
       this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
       this.dateiToolStripMenuItem.Text = "Datei";
@@ -85,13 +87,13 @@
       // itemNew
       // 
       this.itemNew.Name = "itemNew";
-      this.itemNew.Size = new System.Drawing.Size(111, 22);
+      this.itemNew.Size = new System.Drawing.Size(152, 22);
       this.itemNew.Text = "Neu";
       // 
       // itemOpen
       // 
       this.itemOpen.Name = "itemOpen";
-      this.itemOpen.Size = new System.Drawing.Size(111, 22);
+      this.itemOpen.Size = new System.Drawing.Size(152, 22);
       this.itemOpen.Text = "Öffnen";
       this.itemOpen.Click += new System.EventHandler(this.itemOpen_Click);
       // 
@@ -132,6 +134,13 @@
       this.lblInfo.TabIndex = 6;
       this.lblInfo.Text = "Info:";
       // 
+      // itemQuit
+      // 
+      this.itemQuit.Name = "itemQuit";
+      this.itemQuit.Size = new System.Drawing.Size(152, 22);
+      this.itemQuit.Text = "Beenden";
+      this.itemQuit.Click += new System.EventHandler(this.itemQuit_Click);
+      // 
       // PlayerForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +180,7 @@
     private System.Windows.Forms.FlowLayoutPanel pnlRecurringItems;
     private System.Windows.Forms.RichTextBox rtxtInfo;
     private System.Windows.Forms.Label lblInfo;
+    private System.Windows.Forms.ToolStripMenuItem itemQuit;
   }
 }
 
