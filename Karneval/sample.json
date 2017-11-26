@@ -1,28 +1,53 @@
 ﻿{
    "recurringItems":[
+	  {
+		"title": "Halber Tusch",
+		"filePath": "recurring\\halber_tusch.mp3"
+	  },
       {
-         "title":"tusch 1x",
-         "filePath":"F:\\Schnippelei\\Karneval\\2017\\Schiffelbach\\tusch_1x.mp3"
+         "title":"Einfacher Tusch",
+         "filePath":"recurring\\tusch_1x.mp3"
       },
       {
-         "title":"tusch 3fach",
-         "filePath":"F:\\Schnippelei\\Karneval\\2017\\Schiffelbach\\tusch_3x.mp3"
+         "title":"3facher Tusch",
+         "filePath":"recurring\\tusch_3x.mp3"
       },
       {
-         "title":"narhalla",
-         "filePath":"F:\\Schnippelei\\Karneval\\2017\\Schiffelbach\\narhalla_+10prozent.mp3"
+         "title":"Narhalla Marsch",
+         "filePath":"recurring\\narhalla.mp3"
       }
    ],
    "programItems":[
       {
          "title":"Einmarsch Moderator",
-         "type":"audio",
-         "filePath":"geiles_himmelblau.mp3"
+         "info": "Spielen während Moderator zur Bühne läuft!",
+         "filePath":"einmarsch_himmelblau.mp3"
       },
+	  {
+		"title": "Garde",
+		"info": "Gardetanz",
+		"filePath": "gardetanz_fdk.mp3"
+	  },
       {
          "title":"Ausmarsch XY",
-         "type":"audio",
-         "filePath":"ausmarsch.mp3"
+         "info": "Erst spielen, nachdem XY vorgestellt wurde!",
+         "filePath":"narhalla.mp3"
+      },
+      {
+         "title":"test 1",
+         "filePath":"schunkel1\\uiuiui.mp3"
+      },
+      {
+         "title":"test 2",
+         "filePath":"schunkel1\\verdammt_lang_her.mp3"
+      },
+      {
+         "title":"test 3",
+         "filePath":"schunkel1\\aloha.mp3"
+      },
+      {
+         "title":"Macarena",
+         "filePath":"Macarena.mp3"
       }
    ]
 }
