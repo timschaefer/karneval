@@ -47,10 +47,11 @@
       // 
       // grpCurrentItem
       // 
+      this.grpCurrentItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
       this.grpCurrentItem.Controls.Add(this.mediaPlayer);
-      this.grpCurrentItem.Location = new System.Drawing.Point(234, 184);
+      this.grpCurrentItem.Location = new System.Drawing.Point(234, 196);
       this.grpCurrentItem.Name = "grpCurrentItem";
-      this.grpCurrentItem.Size = new System.Drawing.Size(299, 115);
+      this.grpCurrentItem.Size = new System.Drawing.Size(267, 115);
       this.grpCurrentItem.TabIndex = 0;
       this.grpCurrentItem.TabStop = false;
       this.grpCurrentItem.Text = "Aktueller Programmpunkt";
@@ -61,7 +62,7 @@
       this.mediaPlayer.Location = new System.Drawing.Point(6, 47);
       this.mediaPlayer.Name = "mediaPlayer";
       this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
-      this.mediaPlayer.Size = new System.Drawing.Size(251, 46);
+      this.mediaPlayer.Size = new System.Drawing.Size(244, 46);
       this.mediaPlayer.TabIndex = 1;
       // 
       // mnuMain
@@ -104,35 +105,38 @@
       this.pnlProgramItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.pnlProgramItems.Location = new System.Drawing.Point(10, 25);
       this.pnlProgramItems.Name = "pnlProgramItems";
-      this.pnlProgramItems.Size = new System.Drawing.Size(697, 153);
+      this.pnlProgramItems.Size = new System.Drawing.Size(697, 165);
       this.pnlProgramItems.TabIndex = 4;
       // 
       // pnlRecurringItems
       // 
-      this.pnlRecurringItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.pnlRecurringItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlRecurringItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.pnlRecurringItems.Location = new System.Drawing.Point(10, 310);
+      this.pnlRecurringItems.Location = new System.Drawing.Point(10, 326);
       this.pnlRecurringItems.Name = "pnlRecurringItems";
-      this.pnlRecurringItems.Size = new System.Drawing.Size(697, 100);
+      this.pnlRecurringItems.Size = new System.Drawing.Size(697, 105);
       this.pnlRecurringItems.TabIndex = 0;
       // 
       // rtxtInfo
       // 
-      this.rtxtInfo.Location = new System.Drawing.Point(10, 205);
+      this.rtxtInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+      this.rtxtInfo.Location = new System.Drawing.Point(522, 212);
       this.rtxtInfo.Name = "rtxtInfo";
-      this.rtxtInfo.Size = new System.Drawing.Size(218, 86);
+      this.rtxtInfo.Size = new System.Drawing.Size(185, 99);
       this.rtxtInfo.TabIndex = 5;
       this.rtxtInfo.Text = "";
       // 
       // lblInfo
       // 
+      this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
       this.lblInfo.AutoSize = true;
-      this.lblInfo.Location = new System.Drawing.Point(10, 185);
+      this.lblInfo.Location = new System.Drawing.Point(679, 196);
       this.lblInfo.Name = "lblInfo";
       this.lblInfo.Size = new System.Drawing.Size(28, 13);
       this.lblInfo.TabIndex = 6;
       this.lblInfo.Text = "Info:";
+      this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
       // itemQuit
       // 
