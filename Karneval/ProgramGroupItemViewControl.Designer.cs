@@ -1,6 +1,6 @@
 ﻿namespace Karneval
 {
-  partial class ProgramItemViewControl
+  partial class ProgramGroupItemViewControl
   {
     /// <summary> 
     /// Required designer variable.

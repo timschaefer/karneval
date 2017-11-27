@@ -8,13 +8,13 @@ namespace Karneval
 {
   public class ProgramItem
   {
-    public ProgramItem(string title, string filePath)
+    public ProgramItem(string name, string filePath)
     {
-      Title = title;
+      Name = name;
       FilePath = filePath;
     }
 
-    public string Title { get; set; }
+    public string Name { get; set; }
 
     public string FilePath { get; set; }
 

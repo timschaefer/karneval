@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Karneval
 {
-  public partial class ProgramItemViewControl : UserControl
+  public partial class ProgramGroupItemViewControl : UserControl
   {
-    public ProgramItem ProgramItem
+    public ProgramGroupItem ProgramGroupItem
     {
       get; set;
     }
@@ -32,22 +32,22 @@ namespace Karneval
       }
     }
 
-    public ProgramItemViewControl()
+    public ProgramGroupItemViewControl()
     {
       InitializeComponent();
     }
 
-    public ProgramItemViewControl(ProgramItem programItem)
+    public ProgramGroupItemViewControl(ProgramGroupItem programGroupItem)
     {
       InitializeComponent();
-      this.ProgramItem = programItem;
-      lblTitle.Text = programItem.Title;
+      this.ProgramGroupItem = programGroupItem;
+      lblTitle.Text = programGroupItem.Title;
     }
 
     private void ProgramItemViewControl_Click(object sender, EventArgs e)
     {
       PlayerForm mainForm = (PlayerForm) this.Parent.Parent;
-      mainForm.SetActiveProgramItem(this);
+      mainForm.SetActiveProgramGroupItem(this);
     }
 
     private void lblTitle_Click(object sender, EventArgs e)

@@ -101,12 +101,13 @@
       <DependentUpon>PlayerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramGroupItem.cs" />
     <Compile Include="ProgramItem.cs" />
-    <Compile Include="ProgramItemViewControl.cs">
+    <Compile Include="ProgramGroupItemViewControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ProgramItemViewControl.Designer.cs">
-      <DependentUpon>ProgramItemViewControl.cs</DependentUpon>
+    <Compile Include="ProgramGroupItemViewControl.Designer.cs">
+      <DependentUpon>ProgramGroupItemViewControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="InitialForm.resx">
@@ -115,8 +116,8 @@
     <EmbeddedResource Include="PlayerForm.resx">
       <DependentUpon>PlayerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgramItemViewControl.resx">
-      <DependentUpon>ProgramItemViewControl.cs</DependentUpon>
+    <EmbeddedResource Include="ProgramGroupItemViewControl.resx">
+      <DependentUpon>ProgramGroupItemViewControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

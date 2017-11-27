@@ -17,8 +17,8 @@ namespace Karneval
   public partial class PlayerForm : Form
   {
     private List<ProgramItem> recurringItems;
-    private List<ProgramItem> programItems;
-    private ProgramItem currentItem;
+    private List<ProgramGroupItem> programGroupItems;
+    private ProgramGroupItem currentItem;
 
     public PlayerForm()
     {
@@ -59,43 +59,55 @@ namespace Karneval
         {
           JObject jsonFile = JObject.Parse(File.ReadAllText(filePath));
 
+          programGroupItems = new List<ProgramGroupItem>();
+
           recurringItems = jsonFile["recurringItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
-          programItems = jsonFile["programItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
+          foreach (JToken token in jsonFile["programGroupItems"])
+          {
+            List<ProgramItem> programItems = token["programItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
+            string info = token["info"] == null ? "" : token["info"].ToString();
+            programGroupItems.Add(new ProgramGroupItem(token["title"].ToString(), info, programItems));
+          }
         }
         catch (Exception)
         {
           MessageBox.Show("Fehler beim Lesen der JSON Datei");
         }
 
+        
         // create controls for all program items
-        foreach (ProgramItem item in programItems)
+        foreach (ProgramGroupItem item in programGroupItems)
         {
-          ProgramItemViewControl control = new ProgramItemViewControl(item);
+          ProgramGroupItemViewControl control = new ProgramGroupItemViewControl(item);
           pnlProgramItems.Controls.Add(control);
         }
-
+        
         foreach (ProgramItem item in recurringItems)
         {
           Button button = new Button();
-          button.Text = item.Title;
+          button.Text = item.Name;
           button.Height = 40;
           button.Click += (_, __) => mediaPlayer.URL = item.FilePath;
           pnlRecurringItems.Controls.Add(button);
         }
-
+        
         string baseDir = new DirectoryInfo(filePath).Parent.FullName;
 
         ResolveFilePaths(recurringItems, baseDir);
-        ResolveFilePaths(programItems, baseDir);
-
+        foreach (ProgramGroupItem item in programGroupItems)
+        {
+          ResolveFilePaths(item.ProgramItems, baseDir);
+        }
+        
         // set first program item to active
-        SetActiveProgramItem((ProgramItemViewControl)pnlProgramItems.Controls[0]);
-
+        SetActiveProgramGroupItem((ProgramGroupItemViewControl)pnlProgramItems.Controls[0]);
+        
         return true;
       }
       return false;
     }
 
+    #region ResolveFilePaths
     public void ResolveFilePaths(List<ProgramItem> items, string baseDir)
     {
       foreach (ProgramItem item in items)
@@ -110,13 +122,14 @@ namespace Karneval
           }
           else
           {
-            MessageBox.Show(string.Format("Datei '{0}' existiert nicht (Pfad: {1})", item.Title, item.FilePath), "Datei existiert nicht");
+            MessageBox.Show(string.Format("Datei '{0}' existiert nicht (Pfad: {1})", item.Name, item.FilePath), "Datei existiert nicht");
           }
         }
       }
     }
+    #endregion
 
-    public void SetActiveProgramItem(ProgramItemViewControl programItem)
+    public void SetActiveProgramGroupItem(ProgramGroupItemViewControl programGroupItem)
     {
       if (mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
       {
@@ -124,19 +137,19 @@ namespace Karneval
       }
       foreach (Control control in pnlProgramItems.Controls)
       {
-        if (control is ProgramItemViewControl)
+        if (control is ProgramGroupItemViewControl)
         {
-          ((ProgramItemViewControl)control).Active = false;
+          ((ProgramGroupItemViewControl)control).Active = false;
         }
       }
-      programItem.Active = true;
-      currentItem = programItem.ProgramItem;
+      programGroupItem.Active = true;
+      currentItem = programGroupItem.ProgramGroupItem;
 
       grpCurrentItem.Text = currentItem.Title;
 
       rtxtInfo.Text = currentItem.Info;
 
-      mediaPlayer.URL = currentItem.FilePath;
+      mediaPlayer.URL = currentItem.ProgramItems[0].FilePath;
       mediaPlayer.Ctlcontrols.stop();
     }
 

@@ -35,11 +35,11 @@
       this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.itemNew = new System.Windows.Forms.ToolStripMenuItem();
       this.itemOpen = new System.Windows.Forms.ToolStripMenuItem();
+      this.itemQuit = new System.Windows.Forms.ToolStripMenuItem();
       this.pnlProgramItems = new System.Windows.Forms.FlowLayoutPanel();
       this.pnlRecurringItems = new System.Windows.Forms.FlowLayoutPanel();
       this.rtxtInfo = new System.Windows.Forms.RichTextBox();
       this.lblInfo = new System.Windows.Forms.Label();
-      this.itemQuit = new System.Windows.Forms.ToolStripMenuItem();
       this.grpCurrentItem.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
       this.mnuMain.SuspendLayout();
@@ -88,15 +88,22 @@
       // itemNew
       // 
       this.itemNew.Name = "itemNew";
-      this.itemNew.Size = new System.Drawing.Size(152, 22);
+      this.itemNew.Size = new System.Drawing.Size(120, 22);
       this.itemNew.Text = "Neu";
       // 
       // itemOpen
       // 
       this.itemOpen.Name = "itemOpen";
-      this.itemOpen.Size = new System.Drawing.Size(152, 22);
+      this.itemOpen.Size = new System.Drawing.Size(120, 22);
       this.itemOpen.Text = "Öffnen";
       this.itemOpen.Click += new System.EventHandler(this.itemOpen_Click);
+      // 
+      // itemQuit
+      // 
+      this.itemQuit.Name = "itemQuit";
+      this.itemQuit.Size = new System.Drawing.Size(120, 22);
+      this.itemQuit.Text = "Beenden";
+      this.itemQuit.Click += new System.EventHandler(this.itemQuit_Click);
       // 
       // pnlProgramItems
       // 
@@ -131,19 +138,12 @@
       // 
       this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
       this.lblInfo.AutoSize = true;
-      this.lblInfo.Location = new System.Drawing.Point(679, 196);
+      this.lblInfo.Location = new System.Drawing.Point(523, 196);
       this.lblInfo.Name = "lblInfo";
-      this.lblInfo.Size = new System.Drawing.Size(28, 13);
+      this.lblInfo.Size = new System.Drawing.Size(181, 13);
       this.lblInfo.TabIndex = 6;
-      this.lblInfo.Text = "Info:";
+      this.lblInfo.Text = "Allgemeine Info zum Programmpunkt:";
       this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
-      // 
-      // itemQuit
-      // 
-      this.itemQuit.Name = "itemQuit";
-      this.itemQuit.Size = new System.Drawing.Size(152, 22);
-      this.itemQuit.Text = "Beenden";
-      this.itemQuit.Click += new System.EventHandler(this.itemQuit_Click);
       // 
       // PlayerForm
       // 
