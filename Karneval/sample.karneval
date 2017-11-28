@@ -1,0 +1,122 @@
+﻿{
+   "recurringItems":[
+	  {
+		"name": "Halber Tusch",
+		"filePath": "recurring\\halber_tusch.mp3"
+	  },
+      {
+         "name":"Einfacher Tusch",
+         "filePath":"recurring\\tusch_1x.mp3"
+      },
+      {
+         "name":"3facher Tusch",
+         "filePath":"recurring\\tusch_3x.mp3"
+      },
+      {
+         "name":"Narhalla Marsch",
+         "filePath":"recurring\\narhalla.mp3"
+      }
+   ],
+   "programGroupItems":[
+      {
+         "title": "1. Moderator",
+		 "programItems": [
+			{
+				"name":"Einmarsch",
+				"info": "Spielen während Moderator zur Bühne läuft!",
+				"filePath":"einmarsch_himmelblau.mp3"
+			},
+			{
+				"name": "Ausmarsch",
+				"info": "Spielen während Moderator die Bühne verlässt!",
+				"filePath":"narhalla.mp3"
+			}
+		 ],
+		 "info": "Macht der Vorstand"
+      },
+	  {
+		"title": "2. Garde",
+		"programItems": [
+			{
+				"name": "Einmarsch",
+				"filePath": "einmarsch_himmelblau.mp3"
+			},
+			{
+				"name": "Tanz",
+				"filePath": "gardetanz_fdk.mp3"
+			},
+			{
+				"name": "Zugabe",
+				"filePath": "gardetanz_fdk.mp3",
+				"info": "Erst nachdem Licht abgedunkelt wurde und Mädels ihre weißen Socken angezogen haben"
+			},
+			{
+				"name": "Ausmarsch",
+				"filePath": "narhalla.mp3",
+				"info": "Erst Vorstellung mit Tusch!!!"
+			}
+		],
+		 "info": "Die Gardemädelz"
+	  },
+      {
+		"title": "3. irgendwas",
+		"programItems": [
+			{
+				"name": "bla",
+				"filePath": "gardetanz_fdk.mp3",
+				"info": "lalala"
+			},
+			{
+				"name": "blubb",
+				"filePath": "die_kuh_macht_muh.mp3",
+				"info": "Muuuuuuuuuuh"
+			},
+			{
+				"name": "hektar",
+				"filePath": "die_hektar_hat.mp3",
+				"info": "Die Hektar hat, die Hektar hat, Hektar hat, Hektar hat!"
+			}
+		]
+	  },
+	  {
+		"title": "4. nochwas",
+		"programItems": [
+			{
+				"name": "bla",
+				"filePath": "gardetanz_fdk.mp3",
+				"info": "lalala"
+			},
+			{
+				"name": "blubb",
+				"filePath": "die_kuh_macht_muh.mp3",
+				"info": "Muuuuuuuuuuh"
+			},
+			{
+				"name": "hektar",
+				"filePath": "die_hektar_hat.mp3",
+				"info": "Die Hektar hat, die Hektar hat, Hektar hat, Hektar hat!"
+			}
+		]
+	  },
+	  {
+		"title": "5. schon wieder was",
+		"programItems": [
+			{
+				"name": "bla",
+				"filePath": "gardetanz_fdk.mp3",
+				"info": "lalala"
+			},
+			{
+				"name": "blubb",
+				"filePath": "die_kuh_macht_muh.mp3",
+				"info": "Muuuuuuuuuuh"
+			},
+			{
+				"name": "hektar",
+				"filePath": "die_hektar_hat.mp3",
+				"info": "Die Hektar hat, die Hektar hat, Hektar hat, Hektar hat!"
+			}
+		]
+	  }
+   ]
+}
