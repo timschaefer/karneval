@@ -16,14 +16,25 @@ namespace Karneval
 {
   public partial class PlayerForm : Form
   {
+    #region Properties
     private List<ProgramItem> recurringItems;
     private List<ProgramGroupItem> programGroupItems;
     private ProgramGroupItem currentItem;
 
+    private bool IsMediaPlaying
+    {
+      get
+      {
+        return mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying;
+      }
+    }
+    #endregion
+    #region Constructor
     public PlayerForm()
     {
       InitializeComponent();
     }
+    #endregion
 
     #region LoadFile
     public void LoadFile()
@@ -64,7 +75,6 @@ namespace Karneval
         {
           MessageBox.Show("Fehler beim Lesen der JSON Datei");
         }
-
         
         // create controls for all program items
         foreach (ProgramGroupItem item in programGroupItems)
@@ -122,7 +132,7 @@ namespace Karneval
     #region SetActiveProgramGroupItem
     public void SetActiveProgramGroupItem(ProgramGroupItemViewControl programGroupItem)
     {
-      if (mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
+      if (IsMediaPlaying)
       {
         return;
       }
@@ -167,15 +177,42 @@ namespace Karneval
       lvProgramItems.Columns.Add("Unterpunkt", lvProgramItems.Width - 4);
       foreach (ProgramItem item in items)
       {
-        lvProgramItems.Items.Add(new ListViewItem(new string[] { item.Name }));
+        ListViewItem lvItem = new ListViewItem(new string[] { item.Name })
+        {
+          Tag = item
+        };
+        lvProgramItems.Items.Add(lvItem);
       }
     }
     #endregion
 
     #region Event Handler
-    private void Main_Load(object sender, EventArgs e)
+    private void lvProgramItems_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
     {
+      if (IsMediaPlaying)
+      {
+        if (e.IsSelected)
+        {
+          e.Item.Selected = false;
+        }
+      }
+      ProgramItem programItem = (ProgramItem)e.Item.Tag;
+      if (!IsMediaPlaying)
+      {
+        InitializeMediaPlayer(programItem.FilePath);
+      }
+    }
 
+    private void lvProgramItems_MouseEnter(object sender, EventArgs e)
+    {
+      if (IsMediaPlaying)
+      {
+        lvProgramItems.Cursor = Cursors.No;
+      }
+      else
+      {
+        lvProgramItems.Cursor = Cursors.Default;
+      }
     }
 
     private void itemOpen_Click(object sender, EventArgs e)

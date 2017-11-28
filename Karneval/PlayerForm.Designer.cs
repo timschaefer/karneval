@@ -164,6 +164,8 @@
       this.lvProgramItems.TabIndex = 7;
       this.lvProgramItems.UseCompatibleStateImageBehavior = false;
       this.lvProgramItems.View = System.Windows.Forms.View.Details;
+      this.lvProgramItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvProgramItems_ItemSelectionChanged);
+      this.lvProgramItems.MouseEnter += new System.EventHandler(this.lvProgramItems_MouseEnter);
       // 
       // lblCurrentItem
       // 
@@ -192,7 +194,6 @@
       this.Name = "PlayerForm";
       this.Text = "Karneval";
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayerForm_FormClosed);
-      this.Load += new System.EventHandler(this.Main_Load);
       this.grpCurrentItem.ResumeLayout(false);
       this.grpCurrentItem.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
