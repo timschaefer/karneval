@@ -30,6 +30,7 @@
         {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerForm));
       this.grpCurrentItem = new System.Windows.Forms.GroupBox();
+      this.lblCurrentItem = new System.Windows.Forms.Label();
       this.mediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
       this.mnuMain = new System.Windows.Forms.MenuStrip();
       this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,7 +42,6 @@
       this.rtxtInfo = new System.Windows.Forms.RichTextBox();
       this.lblInfo = new System.Windows.Forms.Label();
       this.lvProgramItems = new System.Windows.Forms.ListView();
-      this.lblCurrentItem = new System.Windows.Forms.Label();
       this.grpCurrentItem.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
       this.mnuMain.SuspendLayout();
@@ -58,6 +58,15 @@
       this.grpCurrentItem.TabIndex = 0;
       this.grpCurrentItem.TabStop = false;
       this.grpCurrentItem.Text = "Aktueller Programmpunkt";
+      // 
+      // lblCurrentItem
+      // 
+      this.lblCurrentItem.AutoSize = true;
+      this.lblCurrentItem.Location = new System.Drawing.Point(7, 28);
+      this.lblCurrentItem.Name = "lblCurrentItem";
+      this.lblCurrentItem.Size = new System.Drawing.Size(35, 13);
+      this.lblCurrentItem.TabIndex = 2;
+      this.lblCurrentItem.Text = "label1";
       // 
       // mediaPlayer
       // 
@@ -123,9 +132,9 @@
       this.pnlRecurringItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
       this.pnlRecurringItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.pnlRecurringItems.Location = new System.Drawing.Point(10, 326);
+      this.pnlRecurringItems.Location = new System.Drawing.Point(10, 380);
       this.pnlRecurringItems.Name = "pnlRecurringItems";
-      this.pnlRecurringItems.Size = new System.Drawing.Size(697, 105);
+      this.pnlRecurringItems.Size = new System.Drawing.Size(697, 50);
       this.pnlRecurringItems.TabIndex = 0;
       // 
       // rtxtInfo
@@ -166,15 +175,6 @@
       this.lvProgramItems.View = System.Windows.Forms.View.Details;
       this.lvProgramItems.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvProgramItems_ItemSelectionChanged);
       this.lvProgramItems.MouseEnter += new System.EventHandler(this.lvProgramItems_MouseEnter);
-      // 
-      // lblCurrentItem
-      // 
-      this.lblCurrentItem.AutoSize = true;
-      this.lblCurrentItem.Location = new System.Drawing.Point(7, 28);
-      this.lblCurrentItem.Name = "lblCurrentItem";
-      this.lblCurrentItem.Size = new System.Drawing.Size(35, 13);
-      this.lblCurrentItem.TabIndex = 2;
-      this.lblCurrentItem.Text = "label1";
       // 
       // PlayerForm
       // 

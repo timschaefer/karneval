@@ -21,7 +21,7 @@ namespace Karneval
     private List<ProgramGroupItem> programGroupItems;
     private ProgramGroupItem currentItem;
 
-    private bool IsMediaPlaying
+    public bool IsMediaPlaying
     {
       get
       {

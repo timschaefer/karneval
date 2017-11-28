@@ -12,6 +12,14 @@ namespace Karneval
 {
   public partial class ProgramGroupItemViewControl : UserControl
   {
+    private PlayerForm MainForm
+    {
+      get
+      {
+        return (PlayerForm)this.Parent.Parent;
+      }
+    }
+
     public ProgramGroupItem ProgramGroupItem
     {
       get; set;
@@ -46,13 +54,24 @@ namespace Karneval
 
     private void ProgramItemViewControl_Click(object sender, EventArgs e)
     {
-      PlayerForm mainForm = (PlayerForm) this.Parent.Parent;
-      mainForm.SetActiveProgramGroupItem(this);
+      MainForm.SetActiveProgramGroupItem(this);
     }
 
     private void lblTitle_Click(object sender, EventArgs e)
     {
       ProgramItemViewControl_Click(sender, e);
+    }
+
+    private void ProgramGroupItemViewControl_MouseEnter(object sender, EventArgs e)
+    {
+      if (MainForm.IsMediaPlaying)
+      {
+        this.Cursor = Cursors.No;
+      }
+      else
+      {
+        this.Cursor = Cursors.Hand;
+      }
     }
   }
 }

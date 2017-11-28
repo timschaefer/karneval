@@ -41,15 +41,17 @@
       this.lblTitle.Text = "title";
       this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
       // 
-      // ProgramItemViewControl
+      // ProgramGroupItemViewControl
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Controls.Add(this.lblTitle);
-      this.Name = "ProgramItemViewControl";
+      this.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.Name = "ProgramGroupItemViewControl";
       this.Size = new System.Drawing.Size(148, 48);
       this.Click += new System.EventHandler(this.ProgramItemViewControl_Click);
+      this.MouseEnter += new System.EventHandler(this.ProgramGroupItemViewControl_MouseEnter);
       this.ResumeLayout(false);
       this.PerformLayout();
 
