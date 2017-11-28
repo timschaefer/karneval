@@ -41,6 +41,7 @@
       this.rtxtInfo = new System.Windows.Forms.RichTextBox();
       this.lblInfo = new System.Windows.Forms.Label();
       this.lvProgramItems = new System.Windows.Forms.ListView();
+      this.lblCurrentItem = new System.Windows.Forms.Label();
       this.grpCurrentItem.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
       this.mnuMain.SuspendLayout();
@@ -49,6 +50,7 @@
       // grpCurrentItem
       // 
       this.grpCurrentItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
+      this.grpCurrentItem.Controls.Add(this.lblCurrentItem);
       this.grpCurrentItem.Controls.Add(this.mediaPlayer);
       this.grpCurrentItem.Location = new System.Drawing.Point(234, 196);
       this.grpCurrentItem.Name = "grpCurrentItem";
@@ -163,6 +165,15 @@
       this.lvProgramItems.UseCompatibleStateImageBehavior = false;
       this.lvProgramItems.View = System.Windows.Forms.View.Details;
       // 
+      // lblCurrentItem
+      // 
+      this.lblCurrentItem.AutoSize = true;
+      this.lblCurrentItem.Location = new System.Drawing.Point(7, 28);
+      this.lblCurrentItem.Name = "lblCurrentItem";
+      this.lblCurrentItem.Size = new System.Drawing.Size(35, 13);
+      this.lblCurrentItem.TabIndex = 2;
+      this.lblCurrentItem.Text = "label1";
+      // 
       // PlayerForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +194,7 @@
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PlayerForm_FormClosed);
       this.Load += new System.EventHandler(this.Main_Load);
       this.grpCurrentItem.ResumeLayout(false);
+      this.grpCurrentItem.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).EndInit();
       this.mnuMain.ResumeLayout(false);
       this.mnuMain.PerformLayout();
@@ -205,6 +217,7 @@
     private System.Windows.Forms.Label lblInfo;
     private System.Windows.Forms.ToolStripMenuItem itemQuit;
     private System.Windows.Forms.ListView lvProgramItems;
+    private System.Windows.Forms.Label lblCurrentItem;
   }
 }
 

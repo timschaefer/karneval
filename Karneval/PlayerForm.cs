@@ -25,16 +25,7 @@ namespace Karneval
       InitializeComponent();
     }
 
-    private void Main_Load(object sender, EventArgs e)
-    {
-      
-    }
-
-    private void itemOpen_Click(object sender, EventArgs e)
-    {
-      LoadFile();
-    }
-
+    #region LoadFile
     public void LoadFile()
     {
       OpenFileDialog fileDialog = new OpenFileDialog();
@@ -50,7 +41,8 @@ namespace Karneval
         LoadProgramFile(fileDialog.FileName);
       }
     }
-
+    #endregion
+    #region LoadProgramFile
     private bool LoadProgramFile(string filePath)
     {
       if (File.Exists(filePath))
@@ -87,7 +79,7 @@ namespace Karneval
           Button button = new Button();
           button.Text = item.Name;
           button.Height = 40;
-          button.Click += (_, __) => mediaPlayer.URL = item.FilePath;
+          button.Click += (_, __) => InitializeMediaPlayer(item.FilePath, true);
           pnlRecurringItems.Controls.Add(button);
         }
         
@@ -106,7 +98,7 @@ namespace Karneval
       }
       return false;
     }
-
+    #endregion
     #region ResolveFilePaths
     public void ResolveFilePaths(List<ProgramItem> items, string baseDir)
     {
@@ -128,7 +120,7 @@ namespace Karneval
       }
     }
     #endregion
-
+    #region SetActiveProgramGroupItem
     public void SetActiveProgramGroupItem(ProgramGroupItemViewControl programGroupItem)
     {
       if (mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
@@ -154,10 +146,21 @@ namespace Karneval
       PopulateProgramItems(currentItem.ProgramItems);
 
       // configure the player with the first item
-      mediaPlayer.URL = currentItem.ProgramItems[0].FilePath;
-      mediaPlayer.Ctlcontrols.stop();
+      InitializeMediaPlayer(currentItem.ProgramItems[0].FilePath);
     }
-
+    #endregion
+    #region InitializeMediaPlayer
+    private void InitializeMediaPlayer(string filePath, bool autoplay = false)
+    {
+      mediaPlayer.URL = filePath;
+      lblCurrentItem.Text = filePath;
+      if (!autoplay)
+      {
+        mediaPlayer.Ctlcontrols.stop();
+      }
+    }
+    #endregion
+    #region PopulateProgramItems
     private void PopulateProgramItems(List<ProgramItem> items)
     {
       lvProgramItems.Items.Clear();
@@ -167,6 +170,18 @@ namespace Karneval
       {
         lvProgramItems.Items.Add(new ListViewItem(new string[] { item.Name }));
       }
+    }
+    #endregion
+
+    #region Event Handler
+    private void Main_Load(object sender, EventArgs e)
+    {
+
+    }
+
+    private void itemOpen_Click(object sender, EventArgs e)
+    {
+      LoadFile();
     }
 
     private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -178,5 +193,6 @@ namespace Karneval
     {
       Application.Exit();
     }
+    #endregion
   }
 }
