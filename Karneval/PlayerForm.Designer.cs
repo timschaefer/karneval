@@ -36,10 +36,11 @@
       this.itemNew = new System.Windows.Forms.ToolStripMenuItem();
       this.itemOpen = new System.Windows.Forms.ToolStripMenuItem();
       this.itemQuit = new System.Windows.Forms.ToolStripMenuItem();
-      this.pnlProgramItems = new System.Windows.Forms.FlowLayoutPanel();
+      this.pnlProgramGroupItems = new System.Windows.Forms.FlowLayoutPanel();
       this.pnlRecurringItems = new System.Windows.Forms.FlowLayoutPanel();
       this.rtxtInfo = new System.Windows.Forms.RichTextBox();
       this.lblInfo = new System.Windows.Forms.Label();
+      this.lvProgramItems = new System.Windows.Forms.ListView();
       this.grpCurrentItem.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.mediaPlayer)).BeginInit();
       this.mnuMain.SuspendLayout();
@@ -105,15 +106,15 @@
       this.itemQuit.Text = "Beenden";
       this.itemQuit.Click += new System.EventHandler(this.itemQuit_Click);
       // 
-      // pnlProgramItems
+      // pnlProgramGroupItems
       // 
-      this.pnlProgramItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+      this.pnlProgramGroupItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-      this.pnlProgramItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.pnlProgramItems.Location = new System.Drawing.Point(10, 25);
-      this.pnlProgramItems.Name = "pnlProgramItems";
-      this.pnlProgramItems.Size = new System.Drawing.Size(697, 165);
-      this.pnlProgramItems.TabIndex = 4;
+      this.pnlProgramGroupItems.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.pnlProgramGroupItems.Location = new System.Drawing.Point(10, 25);
+      this.pnlProgramGroupItems.Name = "pnlProgramGroupItems";
+      this.pnlProgramGroupItems.Size = new System.Drawing.Size(697, 165);
+      this.pnlProgramGroupItems.TabIndex = 4;
       // 
       // pnlRecurringItems
       // 
@@ -127,7 +128,8 @@
       // 
       // rtxtInfo
       // 
-      this.rtxtInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+      this.rtxtInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.rtxtInfo.Location = new System.Drawing.Point(522, 212);
       this.rtxtInfo.Name = "rtxtInfo";
       this.rtxtInfo.Size = new System.Drawing.Size(185, 99);
@@ -136,7 +138,8 @@
       // 
       // lblInfo
       // 
-      this.lblInfo.Anchor = System.Windows.Forms.AnchorStyles.Right;
+      this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
       this.lblInfo.AutoSize = true;
       this.lblInfo.Location = new System.Drawing.Point(523, 196);
       this.lblInfo.Name = "lblInfo";
@@ -145,15 +148,31 @@
       this.lblInfo.Text = "Allgemeine Info zum Programmpunkt:";
       this.lblInfo.TextAlign = System.Drawing.ContentAlignment.TopRight;
       // 
+      // lvProgramItems
+      // 
+      this.lvProgramItems.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+      this.lvProgramItems.FullRowSelect = true;
+      this.lvProgramItems.GridLines = true;
+      this.lvProgramItems.Location = new System.Drawing.Point(10, 196);
+      this.lvProgramItems.MultiSelect = false;
+      this.lvProgramItems.Name = "lvProgramItems";
+      this.lvProgramItems.ShowGroups = false;
+      this.lvProgramItems.Size = new System.Drawing.Size(100, 115);
+      this.lvProgramItems.TabIndex = 7;
+      this.lvProgramItems.UseCompatibleStateImageBehavior = false;
+      this.lvProgramItems.View = System.Windows.Forms.View.Details;
+      // 
       // PlayerForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(724, 442);
+      this.Controls.Add(this.lvProgramItems);
       this.Controls.Add(this.lblInfo);
       this.Controls.Add(this.rtxtInfo);
       this.Controls.Add(this.pnlRecurringItems);
-      this.Controls.Add(this.pnlProgramItems);
+      this.Controls.Add(this.pnlProgramGroupItems);
       this.Controls.Add(this.grpCurrentItem);
       this.Controls.Add(this.mnuMain);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -180,11 +199,12 @@
     private System.Windows.Forms.ToolStripMenuItem itemOpen;
     private System.Windows.Forms.ToolStripMenuItem itemNew;
     private AxWMPLib.AxWindowsMediaPlayer mediaPlayer;
-    private System.Windows.Forms.FlowLayoutPanel pnlProgramItems;
+    private System.Windows.Forms.FlowLayoutPanel pnlProgramGroupItems;
     private System.Windows.Forms.FlowLayoutPanel pnlRecurringItems;
     private System.Windows.Forms.RichTextBox rtxtInfo;
     private System.Windows.Forms.Label lblInfo;
     private System.Windows.Forms.ToolStripMenuItem itemQuit;
+    private System.Windows.Forms.ListView lvProgramItems;
   }
 }
 

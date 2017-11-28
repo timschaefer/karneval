@@ -44,7 +44,7 @@ namespace Karneval
 
       if (fileDialog.ShowDialog() == DialogResult.OK)
       {
-        pnlProgramItems.Controls.Clear();
+        pnlProgramGroupItems.Controls.Clear();
         pnlRecurringItems.Controls.Clear();
         
         LoadProgramFile(fileDialog.FileName);
@@ -79,7 +79,7 @@ namespace Karneval
         foreach (ProgramGroupItem item in programGroupItems)
         {
           ProgramGroupItemViewControl control = new ProgramGroupItemViewControl(item);
-          pnlProgramItems.Controls.Add(control);
+          pnlProgramGroupItems.Controls.Add(control);
         }
         
         foreach (ProgramItem item in recurringItems)
@@ -100,7 +100,7 @@ namespace Karneval
         }
         
         // set first program item to active
-        SetActiveProgramGroupItem((ProgramGroupItemViewControl)pnlProgramItems.Controls[0]);
+        SetActiveProgramGroupItem((ProgramGroupItemViewControl)pnlProgramGroupItems.Controls[0]);
         
         return true;
       }
@@ -135,7 +135,8 @@ namespace Karneval
       {
         return;
       }
-      foreach (Control control in pnlProgramItems.Controls)
+      // set all group items to inactive
+      foreach (Control control in pnlProgramGroupItems.Controls)
       {
         if (control is ProgramGroupItemViewControl)
         {
@@ -149,8 +150,23 @@ namespace Karneval
 
       rtxtInfo.Text = currentItem.Info;
 
+      // populate the program items of the current item to the list view
+      PopulateProgramItems(currentItem.ProgramItems);
+
+      // configure the player with the first item
       mediaPlayer.URL = currentItem.ProgramItems[0].FilePath;
       mediaPlayer.Ctlcontrols.stop();
+    }
+
+    private void PopulateProgramItems(List<ProgramItem> items)
+    {
+      lvProgramItems.Items.Clear();
+      lvProgramItems.Columns.Clear();
+      lvProgramItems.Columns.Add("Unterpunkt", lvProgramItems.Width - 4);
+      foreach (ProgramItem item in items)
+      {
+        lvProgramItems.Items.Add(new ListViewItem(new string[] { item.Name }));
+      }
     }
 
     private void PlayerForm_FormClosed(object sender, FormClosedEventArgs e)
