@@ -30,21 +30,20 @@ namespace Karneval
     {
       OpenFileDialog fileDialog = new OpenFileDialog();
       fileDialog.Title = "Datei auswählen";
-      fileDialog.Filter = "JSON files (*.json)|*.json";
+      fileDialog.Filter = string.Format("{0}|*.{1}", Program.FILE_EXTENSION_FILTER, Program.FILE_EXTENSION);
       fileDialog.CheckFileExists = true;
 
       if (fileDialog.ShowDialog() == DialogResult.OK)
       {
-        pnlProgramGroupItems.Controls.Clear();
-        pnlRecurringItems.Controls.Clear();
-        
         LoadProgramFile(fileDialog.FileName);
       }
     }
     #endregion
     #region LoadProgramFile
-    private bool LoadProgramFile(string filePath)
+    public bool LoadProgramFile(string filePath)
     {
+      pnlProgramGroupItems.Controls.Clear();
+      pnlRecurringItems.Controls.Clear();
       if (File.Exists(filePath))
       {
         try

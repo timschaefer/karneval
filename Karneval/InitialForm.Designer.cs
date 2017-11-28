@@ -48,6 +48,7 @@
       // 
       // InitialForm
       // 
+      this.AllowDrop = true;
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(386, 140);
@@ -56,6 +57,8 @@
       this.Name = "InitialForm";
       this.Text = "Karneval";
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.InitialForm_FormClosed);
+      this.DragDrop += new System.Windows.Forms.DragEventHandler(this.InitialForm_DragDrop);
+      this.DragEnter += new System.Windows.Forms.DragEventHandler(this.InitialForm_DragEnter);
       this.ResumeLayout(false);
 
     }
