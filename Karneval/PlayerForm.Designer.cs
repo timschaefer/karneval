@@ -64,9 +64,9 @@
       this.lblCurrentItem.AutoSize = true;
       this.lblCurrentItem.Location = new System.Drawing.Point(7, 28);
       this.lblCurrentItem.Name = "lblCurrentItem";
-      this.lblCurrentItem.Size = new System.Drawing.Size(35, 13);
+      this.lblCurrentItem.Size = new System.Drawing.Size(58, 13);
       this.lblCurrentItem.TabIndex = 2;
-      this.lblCurrentItem.Text = "label1";
+      this.lblCurrentItem.Text = "Dateiname";
       // 
       // mediaPlayer
       // 

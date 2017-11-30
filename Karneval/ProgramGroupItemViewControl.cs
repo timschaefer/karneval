@@ -31,7 +31,7 @@ namespace Karneval
       {
         if (value)
         {
-          this.BackColor = Color.PaleTurquoise;
+          this.BackColor = Color.GreenYellow;
         }
         else
         {
