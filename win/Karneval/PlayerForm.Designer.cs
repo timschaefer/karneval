@@ -49,10 +49,9 @@
       // 
       // grpCurrentItem
       // 
-      this.grpCurrentItem.Anchor = System.Windows.Forms.AnchorStyles.Left;
       this.grpCurrentItem.Controls.Add(this.lblCurrentItem);
       this.grpCurrentItem.Controls.Add(this.mediaPlayer);
-      this.grpCurrentItem.Location = new System.Drawing.Point(234, 196);
+      this.grpCurrentItem.Location = new System.Drawing.Point(205, 196);
       this.grpCurrentItem.Name = "grpCurrentItem";
       this.grpCurrentItem.Size = new System.Drawing.Size(267, 115);
       this.grpCurrentItem.TabIndex = 0;
@@ -169,7 +168,8 @@
       this.lvProgramItems.MultiSelect = false;
       this.lvProgramItems.Name = "lvProgramItems";
       this.lvProgramItems.ShowGroups = false;
-      this.lvProgramItems.Size = new System.Drawing.Size(100, 115);
+      this.lvProgramItems.ShowItemToolTips = true;
+      this.lvProgramItems.Size = new System.Drawing.Size(120, 130);
       this.lvProgramItems.TabIndex = 7;
       this.lvProgramItems.UseCompatibleStateImageBehavior = false;
       this.lvProgramItems.View = System.Windows.Forms.View.Details;

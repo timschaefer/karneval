@@ -179,7 +179,8 @@ namespace Karneval
       {
         ListViewItem lvItem = new ListViewItem(new string[] { item.Name })
         {
-          Tag = item
+          Tag = item,
+          ToolTipText = item.Info
         };
         lvProgramItems.Items.Add(lvItem);
       }
