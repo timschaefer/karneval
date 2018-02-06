@@ -155,7 +155,10 @@ namespace Karneval
       PopulateProgramItems(currentItem.ProgramItems);
 
       // configure the player with the first item
-      InitializeMediaPlayer(currentItem.ProgramItems[0].FilePath);
+      if (currentItem.ProgramItems.Count != 0)
+      {
+        InitializeMediaPlayer(currentItem.ProgramItems[0].FilePath);
+      }
     }
     #endregion
     #region InitializeMediaPlayer
