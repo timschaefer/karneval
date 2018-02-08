@@ -12,6 +12,8 @@ namespace Karneval
 
     public string Info { get; set; }
 
+    public bool Auto { get; set; }
+
     private List<ProgramItem> programItems;
 
     public List<ProgramItem> ProgramItems
@@ -26,11 +28,12 @@ namespace Karneval
       }
     }
 
-    public ProgramGroupItem(string title, string info, List<ProgramItem> programItems)
+    public ProgramGroupItem(string title, string info, bool auto, List<ProgramItem> programItems)
     {
       this.Title = title;
       this.Info = info;
       this.programItems = programItems;
+      this.Auto = auto;
     }
   }
 }

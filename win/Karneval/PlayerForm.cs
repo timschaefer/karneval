@@ -68,7 +68,7 @@ namespace Karneval
           {
             List<ProgramItem> programItems = token["programItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
             string info = token["info"] == null ? "" : token["info"].ToString();
-            programGroupItems.Add(new ProgramGroupItem(token["title"].ToString(), info, programItems));
+            programGroupItems.Add(new ProgramGroupItem(token["title"].ToString(), info, Convert.ToBoolean(token["Auto"]), programItems));
           }
         }
         catch (Exception)
@@ -153,12 +153,6 @@ namespace Karneval
 
       // populate the program items of the current item to the list view
       PopulateProgramItems(currentItem.ProgramItems);
-
-      // configure the player with the first item
-      //if (currentItem.ProgramItems.Count != 0)
-      //{
-      //  InitializeMediaPlayer(currentItem.ProgramItems[0]);
-      //}
     }
     #endregion
     #region InitializeMediaPlayer
@@ -187,7 +181,7 @@ namespace Karneval
         };
         lvProgramItems.Items.Add(lvItem);
       }
-      
+
       if (items.Count > 0)
       {
         lvProgramItems.Items[0].Selected = true;
@@ -242,6 +236,28 @@ namespace Karneval
 
     private void mediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
     {
+      if (e.newState == Convert.ToInt32(WMPLib.WMPPlayState.wmppsMediaEnded))
+      {
+        // auto select the next item
+        int selectedIndex = lvProgramItems.SelectedIndices[0];
+        if (selectedIndex < lvProgramItems.Items.Count - 1)
+        {
+          ListViewItem nextItem = lvProgramItems.Items[selectedIndex + 1];
+          nextItem.Selected = true;
+          if (currentItem.Auto)
+          {
+            // ugly, but i have no idea why it doesn't work without delay :-(
+            Timer timer = new Timer();
+            timer.Tick += (_, __) =>
+            {
+              InitializeMediaPlayer((ProgramItem)nextItem.Tag, true);
+              timer.Stop();
+            };
+            timer.Interval = 100;
+            timer.Start();
+          }
+        }
+      }
       lvProgramItems.Focus();
     }
   }
