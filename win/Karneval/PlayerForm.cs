@@ -75,23 +75,23 @@ namespace Karneval
         {
           MessageBox.Show("Fehler beim Lesen der JSON Datei");
         }
-        
+
         // create controls for all program items
         foreach (ProgramGroupItem item in programGroupItems)
         {
           ProgramGroupItemViewControl control = new ProgramGroupItemViewControl(item);
           pnlProgramGroupItems.Controls.Add(control);
         }
-        
+
         foreach (ProgramItem item in recurringItems)
         {
           Button button = new Button();
           button.Text = item.Name;
           button.Height = 40;
-          button.Click += (_, __) => InitializeMediaPlayer(item.FilePath, true);
+          button.Click += (_, __) => InitializeMediaPlayer(item, true);
           pnlRecurringItems.Controls.Add(button);
         }
-        
+
         string baseDir = new DirectoryInfo(filePath).Parent.FullName;
 
         ResolveFilePaths(recurringItems, baseDir);
@@ -99,10 +99,10 @@ namespace Karneval
         {
           ResolveFilePaths(item.ProgramItems, baseDir);
         }
-        
+
         // set first program item to active
         SetActiveProgramGroupItem((ProgramGroupItemViewControl)pnlProgramGroupItems.Controls[0]);
-        
+
         return true;
       }
       return false;
@@ -155,17 +155,17 @@ namespace Karneval
       PopulateProgramItems(currentItem.ProgramItems);
 
       // configure the player with the first item
-      if (currentItem.ProgramItems.Count != 0)
-      {
-        InitializeMediaPlayer(currentItem.ProgramItems[0].FilePath);
-      }
+      //if (currentItem.ProgramItems.Count != 0)
+      //{
+      //  InitializeMediaPlayer(currentItem.ProgramItems[0]);
+      //}
     }
     #endregion
     #region InitializeMediaPlayer
-    private void InitializeMediaPlayer(string filePath, bool autoplay = false)
+    private void InitializeMediaPlayer(ProgramItem programItem, bool autoplay = false)
     {
-      mediaPlayer.URL = filePath;
-      lblCurrentItem.Text = filePath;
+      mediaPlayer.URL = programItem.FilePath;
+      lblCurrentItem.Text = programItem.FilePath;
       if (!autoplay)
       {
         mediaPlayer.Ctlcontrols.stop();
@@ -187,6 +187,11 @@ namespace Karneval
         };
         lvProgramItems.Items.Add(lvItem);
       }
+      
+      if (items.Count > 0)
+      {
+        lvProgramItems.Items[0].Selected = true;
+      }
     }
     #endregion
 
@@ -203,7 +208,7 @@ namespace Karneval
       ProgramItem programItem = (ProgramItem)e.Item.Tag;
       if (!IsMediaPlaying)
       {
-        InitializeMediaPlayer(programItem.FilePath);
+        InitializeMediaPlayer(programItem);
       }
     }
 
@@ -234,5 +239,10 @@ namespace Karneval
       Application.Exit();
     }
     #endregion
+
+    private void mediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
+    {
+      lvProgramItems.Focus();
+    }
   }
 }

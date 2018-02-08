@@ -75,6 +75,7 @@
       this.mediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("mediaPlayer.OcxState")));
       this.mediaPlayer.Size = new System.Drawing.Size(244, 46);
       this.mediaPlayer.TabIndex = 1;
+      this.mediaPlayer.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.mediaPlayer_PlayStateChange);
       // 
       // mnuMain
       // 
@@ -164,6 +165,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
       this.lvProgramItems.FullRowSelect = true;
       this.lvProgramItems.GridLines = true;
+      this.lvProgramItems.HideSelection = false;
       this.lvProgramItems.Location = new System.Drawing.Point(10, 196);
       this.lvProgramItems.MultiSelect = false;
       this.lvProgramItems.Name = "lvProgramItems";
