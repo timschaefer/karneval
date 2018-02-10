@@ -70,7 +70,7 @@ namespace Karneval
           {
             List<ProgramItem> programItems = token["programItems"].Select(p => p.ToObject<ProgramItem>()).ToList();
             string info = token["info"] == null ? "" : token["info"].ToString();
-            programGroupItems.Add(new ProgramGroupItem(token["title"].ToString(), info, Convert.ToBoolean(token["Auto"]), programItems));
+            programGroupItems.Add(new ProgramGroupItem(token["title"].ToString(), info, Convert.ToBoolean(token["auto"]), programItems));
           }
         }
         catch (Exception)
@@ -243,7 +243,7 @@ namespace Karneval
 
     private void mediaPlayer_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)
     {
-      if (e.newState == Convert.ToInt32(WMPLib.WMPPlayState.wmppsMediaEnded))
+      if (!restoreLastItem && e.newState == Convert.ToInt32(WMPLib.WMPPlayState.wmppsMediaEnded))
       {
         // auto select the next item
         int selectedIndex = lvProgramItems.SelectedIndices[0];
