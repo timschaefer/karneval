@@ -20,6 +20,8 @@ namespace Karneval
     private List<ProgramItem> recurringItems;
     private List<ProgramGroupItem> programGroupItems;
     private ProgramGroupItem currentItem;
+    private ProgramItem selectedItem;
+    private bool restoreLastItem;
 
     public bool IsMediaPlaying
     {
@@ -88,7 +90,12 @@ namespace Karneval
           Button button = new Button();
           button.Text = item.Name;
           button.Height = 40;
-          button.Click += (_, __) => InitializeMediaPlayer(item, true);
+          button.Click += (_, __) =>
+          {
+            // maintain the currently selected item after playing the recurring item
+            restoreLastItem = true;
+            InitializeMediaPlayer(item, true);
+          };
           pnlRecurringItems.Controls.Add(button);
         }
 
@@ -199,10 +206,10 @@ namespace Karneval
           e.Item.Selected = false;
         }
       }
-      ProgramItem programItem = (ProgramItem)e.Item.Tag;
+      selectedItem = (ProgramItem)e.Item.Tag;
       if (!IsMediaPlaying)
       {
-        InitializeMediaPlayer(programItem);
+        InitializeMediaPlayer(selectedItem);
       }
     }
 
@@ -257,6 +264,13 @@ namespace Karneval
             timer.Start();
           }
         }
+      }
+      if (restoreLastItem &&
+        (e.newState == Convert.ToInt32(WMPLib.WMPPlayState.wmppsMediaEnded)
+        || e.newState == Convert.ToInt32(WMPLib.WMPPlayState.wmppsStopped)))
+      {
+        InitializeMediaPlayer(selectedItem);
+        restoreLastItem = false;
       }
       lvProgramItems.Focus();
     }
